@@ -318,6 +318,78 @@ pre {
     transform: translateX(-50%);
 }
 
+/* 并行切割图例样式 */
+#parallelLegend {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 20;
+    backdrop-filter: blur(4px);
+}
+
+/* 并行可视化样式 */
+.parallel-visual {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 数据并行通信样式 */
+.connection-line.data-parallel {
+    background-color: #3b82f6;
+    height: 3px;
+    animation: pulse-blue 2s infinite;
+}
+
+/* 流水线并行通信样式 */
+.connection-line.pipeline-parallel {
+    background-color: #10b981;
+    height: 3px;
+    animation: pulse-green 2s infinite;
+}
+
+/* 张量并行通信样式 */
+.connection-line.tensor-parallel {
+    background-color: #8b5cf6;
+    height: 3px;
+    animation: pulse-purple 2s infinite;
+}
+
+/* 动画效果 */
+@keyframes pulse-blue {
+    0%, 100% {
+        opacity: 0.7;
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0);
+    }
+}
+
+@keyframes pulse-green {
+    0%, 100% {
+        opacity: 0.7;
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0);
+    }
+}
+
+@keyframes pulse-purple {
+    0%, 100% {
+        opacity: 0.7;
+        box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0);
+    }
+}
+
 /* 网格布局样式调整 */
 .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
     display: grid;
