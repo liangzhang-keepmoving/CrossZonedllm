@@ -759,44 +759,44 @@ document.addEventListener('DOMContentLoaded', function() {
             strategyType = 'Computation-Limited Scenario';
             hidingStrategySuggestions = `
                 <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li><strong>多级梯度累积</strong>：推荐使用8-32倍的梯度累积系数，将多个小批量的梯度累积后再进行一次通信，显著减少通信频率。特别适用于跨广域场景，可配置参数：<code>gradient_accumulation_steps=16</code></li>
-                    <li><strong>高效数据压缩</strong>：优先使用FP16/BF16混合精度压缩（减少50%通信量），对梯度应用Top-K稀疏化（稀疏度60-90%），跨地域通信可考虑更激进的量化如INT8/INT4（需配合校准）</li>
-                    <li><strong>预测性通信</strong>：实现基于历史通信模式的预测器，在当前计算阶段早期就预发送下一轮迭代需要的模型参数或梯度，推荐设置：预测窗口=2-3个计算周期</li>
-                    <li><strong>异步通信模式</strong>：采用Non-blocking通信API和通信线程池，允许计算和通信完全并行执行，关键配置：独立通信线程数=GPU数量/2</li>
-                    <li><strong>分层通信架构</strong>：地域内节点间使用高速通信（如NVLink），地域间节点使用压缩通信和最优路径规划</li>
-                    <li><strong>模型分区优化</strong>：根据地域网络特性，将通信密集型层尽量放在同一地域内，减少跨地域通信需求</li>
+                    <li><strong>Multi-level Gradient Accumulation</strong>: Recommended to use 8-32x gradient accumulation coefficient to accumulate gradients from multiple mini-batches before communication, significantly reducing communication frequency. Particularly suitable for cross-zone scenarios, configurable parameter: <code>gradient_accumulation_steps=16</code></li>
+                    <li><strong>Efficient Data Compression</strong>: Prioritize FP16/BF16 mixed-precision compression (reducing communication volume by 50%), apply Top-K sparsification to gradients (sparsity 60-90%), and consider more aggressive quantization like INT8/INT4 for cross-region communication (with calibration)</li>
+                    <li><strong>Predictive Communication</strong>: Implement predictors based on historical communication patterns to pre-send model parameters or gradients needed for the next iteration early in the current computation phase, recommended setting: prediction window=2-3 computation cycles</li>
+                    <li><strong>Asynchronous Communication Mode</strong>: Adopt Non-blocking communication APIs and communication thread pools to allow full parallel execution of computation and communication, key configuration: independent communication threads=GPU count/2</li>
+                    <li><strong>Hierarchical Communication Architecture</strong>: Use high-speed communication (such as NVLink) between nodes within regions, and compressed communication with optimal path planning between regions</li>
+                    <li><strong>Model Partitioning Optimization</strong>: Based on regional network characteristics, place communication-intensive layers within the same region as much as possible to reduce cross-region communication requirements</li>
                 </ul>`;
             hidingEfficiencyEstimate = `
                 <div class="mt-4 p-3 bg-orange-50 rounded-lg text-sm text-orange-700">
-                    <strong>场景特点：</strong> 计算时长远小于通信时长，属于通信瓶颈场景。
+                    <strong>Scenario Characteristics:</strong> Computation time is much shorter than communication time, belonging to the communication bottleneck scenario.
                 </div>
                 <div class="mt-2 p-3 bg-green-50 rounded-lg text-sm text-green-700">
-                    <strong>掩盖效率估计：</strong> 由于计算时间有限，重叠通信的效果会受到限制。采用上述策略后，预计可掩盖约30-50%的通信开销，主要通过数据压缩和减少通信频率来提升效率。
+                    <strong>Hiding Efficiency Estimate:</strong> Due to limited computation time, the effectiveness of overlapping communication will be restricted. After adopting the above strategies, it's expected to hide about 30-50% of communication overhead, primarily improving efficiency through data compression and reduced communication frequency.
                 </div>`;
         } else if (computeToCommunicationRatio >= 0.5 && computeToCommunicationRatio <= 2) {
-            // 计算时长与通信时长相近（通信时长的50%-200%）
-            strategyType = '平衡场景';
+            // Computation time is similar to communication time (50%-200% of communication time)
+            strategyType = 'Balanced Scenario';
             hidingStrategySuggestions = `
                 <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li><strong>重叠通信和计算</strong>：使用CUDA流和事件同步，在计算的同时执行通信操作，最大化资源利用率</li>
-                    <li><strong>梯度累积</strong>：推荐4-8倍的梯度累积系数，在保持训练稳定性的同时减少通信频率</li>
-                    <li><strong>高效数据压缩</strong>：对梯度应用混合精度（FP16）和适度稀疏化（稀疏度40-70%），平衡压缩率和精度损失</li>
-                    <li><strong>预测性通信</strong>：实现轻量级预测机制，在计算过程中预发送关键数据，推荐预测窗口=1-2个计算周期</li>
-                    <li><strong>分层通信策略</strong>：地域内节点间使用快速通信，地域间使用压缩通信，同时考虑异步通信模式优化关键路径</li>
+                    <li><strong>Overlapping Communication and Computation</strong>: Use CUDA streams and event synchronization to execute communication operations simultaneously with computation, maximizing resource utilization</li>
+                    <li><strong>Gradient Accumulation</strong>: Recommended 4-8x gradient accumulation coefficient to reduce communication frequency while maintaining training stability</li>
+                    <li><strong>Efficient Data Compression</strong>: Apply mixed precision (FP16) and moderate sparsification (sparsity 40-70%) to gradients, balancing compression rate and precision loss</li>
+                    <li><strong>Predictive Communication</strong>: Implement lightweight prediction mechanisms to pre-send critical data during computation, recommended prediction window=1-2 computation cycles</li>
+                    <li><strong>Hierarchical Communication Strategy</strong>: Use fast communication between nodes within regions and compressed communication between regions, while considering asynchronous communication mode to optimize critical paths</li>
                 </ul>`;
             hidingEfficiencyEstimate = `
                 <div class="mt-4 p-3 bg-blue-50 rounded-lg text-sm text-blue-700">
-                    <strong>掩盖效率估计：</strong> 采用上述策略后，预计可掩盖约60-80%的通信开销，显著提升跨广域训练效率。
+                    <strong>Hiding Efficiency Estimate:</strong> After adopting the above strategies, it's expected to hide about 60-80% of communication overhead, significantly improving cross-zone training efficiency.
                 </div>`;
         } else {
-            // 计算时长远大于通信时长（大于通信时长的200%）
-            strategyType = '通信受限场景';
+            // Computation time is much longer than communication time (greater than 200% of communication time)
+            strategyType = 'Communication-Limited Scenario';
             hidingStrategySuggestions = `
                 <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li><strong>完全重叠通信和计算</strong>：使用高级CUDA流管理和通信计算重叠技术，确保通信几乎完全隐藏在计算过程中</li>
-                    <li><strong>流水线通信模式</strong>：实现多级流水线通信，在计算过程中分段执行通信操作，充分利用计算时间窗口</li>
-                    <li><strong>异步通信模式</strong>：采用完全异步的通信架构，使用独立的通信线程和非阻塞API，允许计算和通信完全并行</li>
-                    <li><strong>预测性通信</strong>：基于精确的性能模型和历史数据，在计算早期精确预测并发送后续需要的数据</li>
+                    <li><strong>Full Overlap of Communication and Computation</strong>: Use advanced CUDA stream management and communication-computation overlapping techniques to ensure communication is almost completely hidden within computation processes</li>
+                    <li><strong>Pipelined Communication Mode</strong>: Implement multi-level pipelined communication to execute communication operations in segments during computation, fully utilizing computation time windows</li>
+                    <li><strong>Asynchronous Communication Mode</strong>: Adopt fully asynchronous communication architecture with independent communication threads and non-blocking APIs to allow full parallelism of computation and communication</li>
+                    <li><strong>Predictive Communication</strong>: Based on precise performance models and historical data, accurately predict and send needed data early in the computation process</li>
                     <li><strong>Efficient Communication Libraries</strong>：Consider using optimized communication libraries like NCCL, Gloo, and enable advanced features such as topology-aware routing</li>
                 </ul>`;
             hidingEfficiencyEstimate = `
@@ -805,14 +805,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>`;
         }
         
-        // 显示通信掩盖策略
+        // Display communication hiding strategies
         communicationHidingResult.innerHTML = `
             <div class="flex justify-between items-center mb-2">
-                <h4 class="font-medium text-gray-800">通信掩盖策略建议</h4>
+                <h4 class="font-medium text-gray-800">Communication Hiding Strategy Recommendations</h4>
                 <span class="inline-block px-2 py-1 text-xs font-semibold bg-blue-100 text-blue-800 rounded-full">${strategyType}</span>
             </div>
             <div class="text-sm text-gray-500 mb-3">
-                <strong>计算:通信时间比:</strong> ${computeToCommunicationRatio.toFixed(2)}:1
+                <strong>Computation:Communication Time Ratio:</strong> ${computeToCommunicationRatio.toFixed(2)}:1
             </div>
             ${hidingStrategySuggestions}
             ${hidingEfficiencyEstimate}
@@ -823,40 +823,40 @@ document.addEventListener('DOMContentLoaded', function() {
             const toggles = ['gradientAccumulationToggle', 'dataCompressionToggle', 'predictiveCommunicationToggle', 'asyncCommunicationToggle', 'crossRegionPrimitive'];
             const inputs = ['chunkSize', 'overlapCoefficient'];
             
-            // 添加开关监听器
-            toggles.forEach(toggleId => {
-                const toggle = document.getElementById(toggleId);
-                if (toggle) {
-                    toggle.addEventListener('change', function() {
-                        // 重新计算并更新结果
-                        const form = document.getElementById('configForm');
-                        if (form && typeof onSubmit === 'function') {
-                            // 模拟表单提交，重新计算
-                            const event = new Event('submit', {cancelable: true});
-                            form.dispatchEvent(event);
-                        }
-                    });
-                }
-            });
-            
-            // 添加输入框监听器
-            inputs.forEach(inputId => {
-                const input = document.getElementById(inputId);
-                if (input) {
-                    input.addEventListener('input', function() {
-                        // 重新计算并更新结果
-                        const form = document.getElementById('configForm');
-                        if (form && typeof onSubmit === 'function') {
-                            // 模拟表单提交，重新计算
-                            const event = new Event('submit', {cancelable: true});
-                            form.dispatchEvent(event);
-                        }
-                    });
-                }
-            });
+            // Add toggle listeners
+        toggles.forEach(toggleId => {
+            const toggle = document.getElementById(toggleId);
+            if (toggle) {
+                toggle.addEventListener('change', function() {
+                    // Recalculate and update results
+                    const form = document.getElementById('configForm');
+                    if (form && typeof onSubmit === 'function') {
+                        // Simulate form submission to recalculate
+                        const event = new Event('submit', {cancelable: true});
+                        form.dispatchEvent(event);
+                    }
+                });
+            }
+        });
+        
+        // Add input field listeners
+        inputs.forEach(inputId => {
+            const input = document.getElementById(inputId);
+            if (input) {
+                input.addEventListener('input', function() {
+                    // Recalculate and update results
+                    const form = document.getElementById('configForm');
+                    if (form && typeof onSubmit === 'function') {
+                        // Simulate form submission to recalculate
+                        const event = new Event('submit', {cancelable: true});
+                        form.dispatchEvent(event);
+                    }
+                });
+            }
+        });
         }
         
-        // 初次调用时设置策略监听器
+        // Set up strategy listeners on initial call
         if (!window.strategyTogglesInitialized) {
             setupStrategyToggles();
             window.strategyTogglesInitialized = true;
@@ -866,22 +866,22 @@ document.addEventListener('DOMContentLoaded', function() {
         updateMapWithCommunication(data);
     }
     
-    // 在地图上更新通信量和计算时长显示，以及并行切割可视化
+    // Update communication volume and computation time display on the map, as well as parallel slicing visualization
     function updateMapWithCommunication(communicationData) {
         const { totalCommunicationPerRoundGB, communicationTimeMs, computeTimeMs, estimatedRoundTimeMs, regionCommunicationFactor, distanceBasedFactor, dp, pp, tp } = communicationData;
         
-        // 检查地图容器中是否已存在通信信息显示元素
+        // Check if communication info display element already exists in map container
         let communicationDisplay = document.getElementById('mapCommunicationDisplay');
         
         if (!communicationDisplay) {
-            // 创建通信信息显示元素
+            // Create communication info display element
             communicationDisplay = document.createElement('div');
             communicationDisplay.id = 'mapCommunicationDisplay';
             communicationDisplay.className = 'absolute bottom-4 left-4 bg-white bg-opacity-90 p-3 rounded-lg shadow-md z-10';
             mapContainer.appendChild(communicationDisplay);
         }
         
-        // 更新通信信息显示内容
+        // Update communication info display content
         communicationDisplay.innerHTML = `
             <div class="text-sm font-medium text-gray-800 mb-1">Training Metrics per Round</div>
             <div class="grid grid-cols-2 gap-2 text-sm">
@@ -916,7 +916,7 @@ document.addEventListener('DOMContentLoaded', function() {
         visualizeParallelSlicing(dp, pp, tp);
     }
     
-    // 可视化并行切割方式
+    // Visualize parallel slicing method
     function visualizeParallelSlicing(dp, pp, tp) {
         // 检查是否已存在并行切割图例
         let parallelLegend = document.getElementById('parallelLegend');
@@ -991,7 +991,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         });
         
-        // 更新连接线样式，显示不同类型的并行通信
+        // Update connection line styles to display different types of parallel communication
         const connectionLines = document.querySelectorAll('.connection-line');
         
         // 先移除所有连接线的特殊类
@@ -1073,7 +1073,7 @@ document.addEventListener('DOMContentLoaded', function() {
 export NCCL_DEBUG=INFO
 # 跨地域训练优化
 export NCCL_SOCKET_IFNAME=eth0
-# 通信压缩
+# Communication Compression
 export NCCL_COMPRESSION=1
 # 地域感知优化
 export DEEPSPEED_REGION_AWARE=1

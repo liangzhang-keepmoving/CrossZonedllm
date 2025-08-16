@@ -335,21 +335,21 @@ pre {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* 数据并行通信样式 */
+/* Data Parallel Communication Style */
 .connection-line.data-parallel {
     background-color: #3b82f6;
     height: 3px;
     animation: pulse-blue 2s infinite;
 }
 
-/* 流水线并行通信样式 */
+/* Pipeline Parallel Communication Style */
 .connection-line.pipeline-parallel {
     background-color: #10b981;
     height: 3px;
     animation: pulse-green 2s infinite;
 }
 
-/* 张量并行通信样式 */
+/* Tensor Parallel Communication Style */
 .connection-line.tensor-parallel {
     background-color: #8b5cf6;
     height: 3px;

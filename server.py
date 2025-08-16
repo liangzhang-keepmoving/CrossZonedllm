@@ -103,7 +103,7 @@ def deploy_deepspeed():
 export NCCL_DEBUG=INFO
 # 跨地域训练优化
 export NCCL_SOCKET_IFNAME=eth0
-# 通信压缩
+# Communication Compression
 export NCCL_COMPRESSION=1
 # 地域感知优化
 export DEEPSPEED_REGION_AWARE=1
