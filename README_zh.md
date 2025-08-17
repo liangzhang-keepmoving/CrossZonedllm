@@ -19,9 +19,12 @@ CrossZoneLLM是一个专为跨区域大模型训练设计的优化平台，旨�
 ├── README.md           # 英文说明文档
 ├── README_zh.md        # 中文说明文档
 ├── images/             # 图片资源
+│   ├── communication-analysis.svg # 通信分析示意图
 │   ├── deployment-code.svg  # 部署代码示意图
-│   ├── training-map.svg     # 训练地图示意图
-│   └── communication-analysis.svg # 通信分析示意图
+│   ├── parallel-strategy.svg # 并行策略示意图
+│   ├── placeholder.html      # 占位符HTML
+│   ├── training-map.png      # 训练地图PNG
+│   └── training-map.svg     # 训练地图SVG
 └── fonts/              # 字体文件
 ```
 
@@ -56,6 +59,8 @@ CrossZoneLLM是一个专为跨区域大模型训练设计的优化平台，旨�
 
 并行策略页面展示了系统推荐的最佳数据并行(DP)、流水线并行(PP)和张量并行(TP)组合。该页面通过雷达图直观对比了推荐策略与其他并行策略（如仅数据并行、仅模型并行）在计算效率、通信开销、内存使用等方面的差异。
 
+![Parallel Strategy](images/parallel-strategy.svg)
+
 ### 通信分析 (Communication Analysis)
 
 通信分析页面详细展示了跨区域训练中的各项通信指标，包括：
@@ -81,9 +86,11 @@ CrossZoneLLM是一个专为跨区域大模型训练设计的优化平台，旨�
 - 数据压缩（Data Compression）
 - 预测通信（Predictive Communication）
 - 异步通信（Async Communication）
-- 通信原语（Communication Primitive）
-- 通信块大小（Chunk Size）
-- 重叠系数（Overlap Coefficient）
+   - 通信原语（Communication Primitive）
+   - 通信块大小（Chunk Size）
+   - 重叠系数（Overlap Coefficient）
+
+![Communication Analysis](images/communication-analysis.svg)
 
 ### 部署代码 (Deployment Code)
 
