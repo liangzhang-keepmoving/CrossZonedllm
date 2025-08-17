@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossZonedllm 图像预览</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-8 text-blue-800">Cross-Zone Distributed Large Model Training Performance Evaluation</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Training Map -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-blue-600 text-white p-4">
+                    <h2 class="text-xl font-semibold">Training Map</h2>
+                </div>
+                <div class="p-4">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded flex items-center justify-center">
+                        <p class="text-gray-500">Training Map Image Placeholder</p>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600">
+                        显示跨区域训练拓扑图，包含区域节点、连接线路、距离标签和关键训练指标。
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Parallel Strategy -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-blue-600 text-white p-4">
+                    <h2 class="text-xl font-semibold">Parallel Strategy</h2>
+                </div>
+                <div class="p-4">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded flex items-center justify-center">
+                        <p class="text-gray-500">Parallel Strategy Image Placeholder</p>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600">
+                        显示推荐的并行策略配置和雷达图比较，包含DP/PP/TP值和推荐理由。
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Communication Analysis -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-blue-600 text-white p-4">
+                    <h2 class="text-xl font-semibold">Communication Analysis</h2>
+                </div>
+                <div class="p-4">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded flex items-center justify-center">
+                        <p class="text-gray-500">Communication Analysis Image Placeholder</p>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600">
+                        详细的通信指标分析和隐藏策略建议，包含计算公式和优化配置。
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Deployment Code -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-blue-600 text-white p-4">
+                    <h2 class="text-xl font-semibold">Deployment Code</h2>
+                </div>
+                <div class="p-4">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded flex items-center justify-center">
+                        <p class="text-gray-500">Deployment Code Image Placeholder</p>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600">
+                        显示DeepSpeed配置文件和启动脚本，支持代码复制和一键部署。
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8 text-center text-gray-500 text-sm">
+            <p>请将实际截图保存到images目录，并确保文件名与README中的引用一致。</p>
+        </div>
+    </div>
+</body>
+</html>
