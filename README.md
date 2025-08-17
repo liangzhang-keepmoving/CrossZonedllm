@@ -76,7 +76,7 @@ The Parallel Strategy tab presents the recommended data parallelism (DP), pipeli
   - Scalability
   - Cross-region Adaptability
 
-![Parallel Strategy](images/parallel-strategy.png)
+![Parallel Strategy](images/parallel-strategy.svg)
 
 ### 3. Communication Analysis
 
@@ -120,7 +120,7 @@ The Communication Analysis tab provides detailed insights into the communication
 
 - Estimates hiding efficiency based on the selected scenario and strategies
 
-![Communication Analysis](images/communication-analysis.png)
+![Communication Analysis](images/communication-analysis.svg)
 
 ### 4. Deployment Code
 
@@ -131,7 +131,7 @@ The Deployment Code tab generates and displays DeepSpeed configuration files and
 - Supports copying the generated code to clipboard
 - Allows for one-click deployment to DeepSpeed
 
-![Deployment Code](images/deployment-code.png)
+![Deployment Code](images/deployment-code.svg)
 
 ## Usage Instructions
 

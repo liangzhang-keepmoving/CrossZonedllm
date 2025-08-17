@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- Header -->
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1e293b">Communication Analysis</text>
+  
+  <!-- Metrics Cards -->
+  <rect x="50" y="80" width="180" height="100" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="250" y="80" width="180" height="100" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="450" y="80" width="180" height="100" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="50" y="200" width="180" height="100" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="250" y="200" width="180" height="100" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="450" y="200" width="180" height="100" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- Metric Labels and Values -->
+  <text x="140" y="110" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Total Communication</text>
+  <text x="140" y="140" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#3b82f6">12.5 GB</text>
+  
+  <text x="340" y="110" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Communication Time</text>
+  <text x="340" y="140" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#ef4444">25.3 ms</text>
+  
+  <text x="540" y="110" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Computation Time</text>
+  <text x="540" y="140" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#10b981">45.7 ms</text>
+  
+  <text x="140" y="230" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Total Round Time</text>
+  <text x="140" y="260" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#f59e0b">68.2 ms</text>
+  
+  <text x="340" y="230" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Parallel Efficiency</text>
+  <text x="340" y="260" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#8b5cf6">87.5%</text>
+  
+  <text x="540" y="230" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Communication Ratio</text>
+  <text x="540" y="260" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#ec4899">37.1%</text>
+  
+  <!-- Strategy Configuration Panel -->
+  <rect x="50" y="320" width="350" height="230" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="225" y="350" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e293b">Strategy Configuration</text>
+  
+  <!-- Configuration Items -->
+  <text x="80" y="380" font-family="Arial, sans-serif" font-size="14" fill="#334155">Gradient Accumulation:</text>
+  <text x="280" y="380" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#10b981">8</text>
+  
+  <text x="80" y="410" font-family="Arial, sans-serif" font-size="14" fill="#334155">Data Compression Ratio:</text>
+  <text x="280" y="410" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#10b981">0.75x</text>
+  
+  <text x="80" y="440" font-family="Arial, sans-serif" font-size="14" fill="#334155">Communication Primitive:</text>
+  <text x="310" y="440" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#10b981">NCCL</text>
+  
+  <text x="80" y="470" font-family="Arial, sans-serif" font-size="14" fill="#334155">Chunk Size:</text>
+  <text x="280" y="470" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#10b981">256MB</text>
+  
+  <text x="80" y="500" font-family="Arial, sans-serif" font-size="14" fill="#334155">Overlap Coefficient:</text>
+  <text x="280" y="500" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#10b981">0.65</text>
+  
+  <!-- Communication Hiding Strategy Panel -->
+  <rect x="420" y="320" width="330" height="230" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="585" y="350" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e293b">Communication Hiding Strategy</text>
+  
+  <!-- Hiding Strategy Content -->
+  <rect x="450" y="370" width="270" height="50" rx="5" fill="#f0fdf4" stroke="#10b981" stroke-width="1"/>
+  <text x="585" y="395" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#166534">Balanced Scenario (0.5-2x ratio)</text>
+  
+  <text x="465" y="440" font-family="Arial, sans-serif" font-size="14" fill="#334155">Recommended Strategies:</text>
+  <text x="465" y="465" font-family="Arial, sans-serif" font-size="12" fill="#334155">• Multi-level Gradient Accumulation</text>
+  <text x="465" y="485" font-family="Arial, sans-serif" font-size="12" fill="#334155">• Asynchronous Communication</text>
+  <text x="465" y="505" font-family="Arial, sans-serif" font-size="12" fill="#334155">• Computation-Communication Overlap</text>
+  
+  <!-- Hiding Efficiency -->
+  <rect x="550" y="520" width="160" height="30" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="575" y="540" font-family="Arial, sans-serif" font-size="14" fill="#1e40af">Estimated Hiding Efficiency:</text>
+  <text x="730" y="540" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="end" fill="#1e40af">42.5%</text>
+</svg>

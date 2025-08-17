@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- Header -->
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1e293b">DeepSpeed Deployment Code</text>
+  
+  <!-- Tabs -->
+  <rect x="100" y="70" width="300" height="30" rx="5" fill="#3b82f6"/>
+  <rect x="400" y="70" width="300" height="30" rx="5" fill="#e2e8f0"/>
+  <text x="250" y="90" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">ds_config.json</text>
+  <text x="550" y="90" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#64748b">run_training.sh</text>
+  
+  <!-- Code Panel -->
+  <rect x="100" y="100" width="600" height="450" rx="5" fill="#1f2937" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Line Numbers -->
+  <rect x="100" y="100" width="40" height="450" fill="#374151"/>
+  
+  <!-- Line number text -->
+  <text x="112" y="120" font-family="Courier, monospace" font-size="12" fill="#9ca3af">1</text>
+  <text x="112" y="140" font-family="Courier, monospace" font-size="12" fill="#9ca3af">2</text>
+  <text x="112" y="160" font-family="Courier, monospace" font-size="12" fill="#9ca3af">3</text>
+  <text x="112" y="180" font-family="Courier, monospace" font-size="12" fill="#9ca3af">4</text>
+  <text x="112" y="200" font-family="Courier, monospace" font-size="12" fill="#9ca3af">5</text>
+  <text x="112" y="220" font-family="Courier, monospace" font-size="12" fill="#9ca3af">6</text>
+  <text x="112" y="240" font-family="Courier, monospace" font-size="12" fill="#9ca3af">7</text>
+  <text x="112" y="260" font-family="Courier, monospace" font-size="12" fill="#9ca3af">8</text>
+  <text x="112" y="280" font-family="Courier, monospace" font-size="12" fill="#9ca3af">9</text>
+  <text x="112" y="300" font-family="Courier, monospace" font-size="12" fill="#9ca3af">10</text>
+  <text x="112" y="320" font-family="Courier, monospace" font-size="12" fill="#9ca3af">11</text>
+  <text x="112" y="340" font-family="Courier, monospace" font-size="12" fill="#9ca3af">12</text>
+  <text x="112" y="360" font-family="Courier, monospace" font-size="12" fill="#9ca3af">13</text>
+  <text x="112" y="380" font-family="Courier, monospace" font-size="12" fill="#9ca3af">14</text>
+  <text x="112" y="400" font-family="Courier, monospace" font-size="12" fill="#9ca3af">15</text>
+  <text x="112" y="420" font-family="Courier, monospace" font-size="12" fill="#9ca3af">16</text>
+  <text x="112" y="440" font-family="Courier, monospace" font-size="12" fill="#9ca3af">17</text>
+  <text x="112" y="460" font-family="Courier, monospace" font-size="12" fill="#9ca3af">18</text>
+  <text x="112" y="480" font-family="Courier, monospace" font-size="12" fill="#9ca3af">19</text>
+  <text x="112" y="500" font-family="Courier, monospace" font-size="12" fill="#9ca3af">20</text>
+  
+  <!-- Code content -->
+  <text x="150" y="120" font-family="Courier, monospace" font-size="12" fill="#f3f4f6">{</text>
+  <text x="170" y="140" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"train_batch_size": <tspan fill="#fcd34d">128</tspan>,</text>
+  <text x="170" y="160" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"train_micro_batch_size_per_gpu": <tspan fill="#fcd34d">8</tspan>,</text>
+  <text x="170" y="180" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"gradient_accumulation_steps": <tspan fill="#fcd34d">8</tspan>,</text>
+  <text x="170" y="200" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"gradient_clipping": <tspan fill="#fcd34d">1.0</tspan>,</text>
+  <text x="170" y="220" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"zero_optimization": {</text>
+  <text x="190" y="240" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"stage": <tspan fill="#fcd34d">3</tspan>,</text>
+  <text x="190" y="260" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"overlap_comm": <tspan fill="#a7f3d0">true</tspan>,</text>
+  <text x="190" y="280" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"reduce_bucket_size": <tspan fill="#fcd34d">5e8</tspan>,</text>
+  <text x="190" y="300" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"contiguous_gradients": <tspan fill="#a7f3d0">true</tspan>
+  <text x="170" y="320" font-family="Courier, monospace" font-size="12" fill="#9ca3af">},</text>
+  <text x="170" y="340" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"fp16": {</text>
+  <text x="190" y="360" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"enabled": <tspan fill="#a7f3d0">true</tspan>,</text>
+  <text x="190" y="380" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"loss_scale_window": <tspan fill="#fcd34d">1000</tspan>
+  <text x="170" y="400" font-family="Courier, monospace" font-size="12" fill="#9ca3af">},</text>
+  <text x="170" y="420" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"wall_clock_breakdown": <tspan fill="#a7f3d0">true</tspan>,</text>
+  <text x="170" y="440" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"communication_data_type": "bfloat16",</text>
+  <text x="170" y="460" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"cross_zone_training": {</text>
+  <text x="190" y="480" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"enabled": <tspan fill="#a7f3d0">true</tspan>,</text>
+  <text x="190" y="500" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"optimize_inter_region_comm": <tspan fill="#a7f3d0">true</tspan>
+  <text x="170" y="520" font-family="Courier, monospace" font-size="12" fill="#9ca3af">}</text>
+  <text x="150" y="540" font-family="Courier, monospace" font-size="12" fill="#f3f4f6">}</text>
+  
+  <!-- Action Buttons -->
+  <rect x="600" y="560" width="100" height="30" rx="5" fill="#10b981"/>
+  <text x="650" y="580" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Deploy</text>
+  
+  <rect x="480" y="560" width="100" height="30" rx="5" fill="#6366f1"/>
+  <text x="530" y="580" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Copy Code</text>
+  
+  <!-- File Path -->
+  <text x="150" y="580" font-family="Arial, sans-serif" font-size="12" fill="#64748b">File path: deployments/ds_config.json</text>
+</svg>

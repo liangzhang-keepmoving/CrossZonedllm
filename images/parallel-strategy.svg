@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- Header -->
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1e293b">Parallel Strategy Recommendation</text>
+  
+  <!-- Data Cards -->
+  <rect x="100" y="100" width="200" height="150" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="300" y="100" width="200" height="150" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="500" y="100" width="200" height="150" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- DP Card -->
+  <text x="200" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#334155">Data Parallelism</text>
+  <text x="200" y="170" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#0ea5e9">DP=4</text>
+  <text x="200" y="210" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b">Across Regions</text>
+  
+  <!-- PP Card -->
+  <text x="400" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#334155">Pipeline Parallelism</text>
+  <text x="400" y="170" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#8b5cf6">PP=2</text>
+  <text x="400" y="210" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b">Within Region</text>
+  
+  <!-- TP Card -->
+  <text x="600" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#334155">Tensor Parallelism</text>
+  <text x="600" y="170" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#ec4899">TP=2</text>
+  <text x="600" y="210" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b">Within Node</text>
+  
+  <!-- Radar Chart -->
+  <circle cx="400" cy="400" r="180" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- Radar Axes -->
+  <line x1="400" y1="220" x2="400" y2="140" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="220" y1="400" x2="140" y2="400" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="580" y1="400" x2="660" y2="400" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="400" y1="580" x2="400" y2="660" stroke="#cbd5e1" stroke-width="2"/>
+  
+  <!-- Diagonal Axes -->
+  <line x1="260" y1="260" x2="340" y2="340" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="540" y1="260" x2="460" y2="340" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="540" y1="540" x2="460" y2="460" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="260" y1="540" x2="340" y2="460" stroke="#cbd5e1" stroke-width="2"/>
+  
+  <!-- Radar Chart Labels -->
+  <text x="400" y="130" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b">Computational Efficiency</text>
+  <text x="130" y="400" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b">Communication Overhead</text>
+  <text x="670" y="400" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b">Memory Usage</text>
+  <text x="400" y="670" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b">Scalability</text>
+  <text x="240" y="240" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b">Cross-region Adaptability</text>
+  
+  <!-- Recommended Strategy Polygon -->
+  <polygon points="400,250 320,320 500,350 430,500 290,450" fill="rgba(59, 130, 246, 0.3)" stroke="#3b82f6" stroke-width="2"/>
+  
+  <!-- Alternative Strategy Polygon -->
+  <polygon points="400,280 300,300 520,330 450,470 310,420" fill="rgba(156, 163, 175, 0.2)" stroke="#9ca3af" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Legend -->
+  <rect x="500" y="500" width="15" height="15" fill="rgba(59, 130, 246, 0.3)" stroke="#3b82f6" stroke-width="2"/>
+  <text x="525" y="512" font-family="Arial, sans-serif" font-size="12" fill="#334155">Recommended Strategy</text>
+  
+  <rect x="500" y="525" width="15" height="15" fill="rgba(156, 163, 175, 0.2)" stroke="#9ca3af" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="525" y="537" font-family="Arial, sans-serif" font-size="12" fill="#334155">Alternative Strategy</text>
+  
+  <!-- Recommendation Reason -->
+  <rect x="100" y="500" width="350" height="70" rx="5" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="115" y="520" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0369a1">Recommendation Reason:</text>
+  <text x="115" y="540" font-family="Arial, sans-serif" font-size="12" fill="#0c4a6e">Optimized for cross-regional training to minimize inter-region</text>
+  <text x="115" y="560" font-family="Arial, sans-serif" font-size="12" fill="#0c4a6e">communication while maintaining computational efficiency.</text>
+</svg>
