@@ -49,17 +49,17 @@
   <text x="190" y="240" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"stage": <tspan fill="#fcd34d">3</tspan>,</text>
   <text x="190" y="260" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"overlap_comm": <tspan fill="#a7f3d0">true</tspan>,</text>
   <text x="190" y="280" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"reduce_bucket_size": <tspan fill="#fcd34d">5e8</tspan>,</text>
-  <text x="190" y="300" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"contiguous_gradients": <tspan fill="#a7f3d0">true</tspan>
+  <text x="190" y="300" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"contiguous_gradients": <tspan fill="#a7f3d0">true</tspan></text>
   <text x="170" y="320" font-family="Courier, monospace" font-size="12" fill="#9ca3af">},</text>
   <text x="170" y="340" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"fp16": {</text>
   <text x="190" y="360" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"enabled": <tspan fill="#a7f3d0">true</tspan>,</text>
-  <text x="190" y="380" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"loss_scale_window": <tspan fill="#fcd34d">1000</tspan>
+  <text x="190" y="380" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"loss_scale_window": <tspan fill="#fcd34d">1000</tspan></text>
   <text x="170" y="400" font-family="Courier, monospace" font-size="12" fill="#9ca3af">},</text>
   <text x="170" y="420" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"wall_clock_breakdown": <tspan fill="#a7f3d0">true</tspan>,</text>
   <text x="170" y="440" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"communication_data_type": "bfloat16",</text>
   <text x="170" y="460" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"cross_zone_training": {</text>
   <text x="190" y="480" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"enabled": <tspan fill="#a7f3d0">true</tspan>,</text>
-  <text x="190" y="500" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"optimize_inter_region_comm": <tspan fill="#a7f3d0">true</tspan>
+  <text x="190" y="500" font-family="Courier, monospace" font-size="12" fill="#9ca3af">"optimize_inter_region_comm": <tspan fill="#a7f3d0">true</tspan></text>
   <text x="170" y="520" font-family="Courier, monospace" font-size="12" fill="#9ca3af">}</text>
   <text x="150" y="540" font-family="Courier, monospace" font-size="12" fill="#f3f4f6">}</text>
   

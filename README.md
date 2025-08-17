@@ -61,7 +61,7 @@ The Training Map provides a visual representation of your distributed training t
 - Visualizes parallel slicing method with color-coded indicators for DP/PP/TP
 - Shows connection line styles for different types of parallel communication
 
-![Training Map](images/training-map.png)
+![Training Map](images/training-map.svg)
 
 ### 2. Parallel Strategy
 
