@@ -39,7 +39,7 @@ pip install -r requirements.txt
 python server.py
 ```
 
-Once the service starts, visit http://localhost:5000 to use the application.
+Once the service starts, visit https://liangzhang-keepmoving.github.io/CrossZonedllm/ to use the application.
 
 ## Web Interface Overview
 
