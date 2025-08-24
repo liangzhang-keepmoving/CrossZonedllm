@@ -2,6 +2,8 @@
 
 This is a web application for evaluating cross-zone distributed large model training performance. The application helps users configure cross-regional distributed training environments, recommend optimal parallel strategies, and generate DeepSpeed deployment code.
 
+https://liangzhang-keepmoving.github.io/CrossZonedllm/
+
 ## Features
 
 - **Cross-zone Training Topology Visualization**: Intuitively displays the distribution and connection of training nodes across multiple regions
